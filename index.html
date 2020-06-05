@@ -14,6 +14,19 @@
     <title>Document</title>
   </head>
   <body>
+    <div>
+        <h1 style="color:brown;">QuestBox</h1>
+        <p style="display: inline;">Enter a URL:</p> 
+        <input id="url" style="margin-top: 10px;" onchange="submitURL()">
+        <input type="submit" onclick="submitURL()"></input>
+        
+    </div>
+    <script>
+        function submitURL(){
+        let url = document.getElementById("url").value
+        location.search = url
+        }
+    </script>
     <div id="root" class="container"></div>
     <script src="index.js" type="module"></script>
     <script
