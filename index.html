@@ -16,15 +16,23 @@
   <body>
     <div>
         <h1 style="color:brown;">QuestBox</h1>
-        <p style="display: inline;">Enter a URL:</p> 
-        <input id="url" style="margin-top: 10px;" onchange="submitURL()">
-        <input type="submit" onclick="submitURL()"></input>
+        <div id="searchBar">
+            <p style="display: inline;">Enter a URL:</p> 
+            <input id="url" style="margin-top: 10px;" onchange="submitURL()">
+            <input type="submit" onclick="submitURL()"></input>
+        </div>
         
     </div>
     <script>
         function submitURL(){
         let url = document.getElementById("url").value
         location.search = url
+        }
+    </script>
+    <script>
+        let urlInput = document.getElementById('searchBar')
+        if(location.search.length > 3){
+            urlInput.style.display = "none"
         }
     </script>
     <div id="root" class="container"></div>
