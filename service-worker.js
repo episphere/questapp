@@ -29,5 +29,5 @@ registerRoute(
     'GET'
 );
 
-workbox.precaching.precacheAndRoute([{url: 'index.html', revision: '4'}]);
+workbox.precaching.precacheAndRoute([{url: 'index.html', revision: 'v5'}]);
 // workbox.precaching.precacheAndRoute([{url: 'index.html', revision: `${new Date().getTime()}`}]);
