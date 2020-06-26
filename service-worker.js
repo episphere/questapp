@@ -1,4 +1,6 @@
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+importScripts(
+  "https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js"
+);
 
 if (workbox) {
   console.log(`Yay! Workbox is loaded 🎉`);
@@ -6,8 +8,8 @@ if (workbox) {
   console.log(`Boo! Workbox didn't load 😬`);
 }
 
-const {registerRoute} = workbox.routing
-const {NetworkFirst} = workbox.strategies
+const { registerRoute } = workbox.routing;
+const { NetworkFirst } = workbox.strategies;
 const { CacheableResponsePlugin } = workbox.cacheableResponse;
 
 // registerRoute(
@@ -15,19 +17,19 @@ const { CacheableResponsePlugin } = workbox.cacheableResponse;
 //   new NetworkFirst()
 // );
 
-registerRoute(/\.(?:js|css)$/, new NetworkFirst({cacheName: 'static-cache'}));
+registerRoute(/\.(?:js|css)$/, new NetworkFirst({ cacheName: "static-cache" }));
 registerRoute(
-    new RegExp('https://.+'),
-    new NetworkFirst({
-        cacheName: 'api-cache',
-        plugins: [
-            new CacheableResponsePlugin({
-                statuses: [200],
-            })
-        ]
-    }),
-    'GET'
+  new RegExp("https://.+"),
+  new NetworkFirst({
+    cacheName: "api-cache",
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [200],
+      }),
+    ],
+  }),
+  "GET"
 );
 
-workbox.precaching.precacheAndRoute([{url: 'index.html', revision: 'v6'}]);
+workbox.precaching.precacheAndRoute([{ url: "index.html", revision: "v9" }]);
 // workbox.precaching.precacheAndRoute([{url: 'index.html', revision: `${new Date().getTime()}`}]);

@@ -28,6 +28,7 @@
     <div>
         <h1 style="color:brown; display: inline;">QuestBox</h1>
         <a href="/questbox"><button class="fa fa-home" style="margin-left: 5px;"> Home</button></a>
+        <button id="clearMem">Clear Memory</button>
         <div id="searchBar">
             <p style="display: inline;">Enter a URL:</p> 
             <input id="url" style="margin-top: 10px;" onchange="submitURL()">
@@ -35,6 +36,13 @@
         </div>
         
     </div>
+    <script>
+      document.getElementById('clearMem').onclick = clearLocalForage
+
+      function clearLocalForage(){
+        localforage.clear()
+      }
+    </script>
     <script>
         function submitURL(){
         let url = document.getElementById("url").value
